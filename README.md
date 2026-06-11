@@ -91,5 +91,4 @@ Navigate to `http://localhost:5173` in your browser. Register an account, upload
 ## 🤝 Contributing
 Contributions, issues, and feature requests are welcome! Feel free to check the [issues page](https://github.com/Jaggu-cpu-afk/smart-study-assistant/issues).
 
-## 📝 License
-This project is licensed under the MIT License.
+
