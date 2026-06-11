@@ -61,7 +61,7 @@ PORT=5000
 MONGO_URI=your_mongodb_connection_string
 JWT_SECRET=your_super_secret_jwt_key
 OPENROUTER_API_KEY=your_openrouter_api_key
-# GEMINI_API_KEY=your_gemini_key (Optional alternative)
+# GEMINI_API_KEY=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
 ```
 
 Start the backend server:
@@ -84,9 +84,6 @@ npm run dev
 ### 4. Open the App
 Navigate to `http://localhost:5173` in your browser. Register an account, upload a PDF, and start generating!
 
-## 📸 Screenshots
-
-*(Add screenshots of your Dashboard, Upload Zone, and MCQs page here!)*
 
 ## 🤝 Contributing
 Contributions, issues, and feature requests are welcome! Feel free to check the [issues page](https://github.com/Jaggu-cpu-afk/smart-study-assistant/issues).
