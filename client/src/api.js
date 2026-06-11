@@ -14,6 +14,9 @@ API.interceptors.request.use(
       req.headers.Authorization =
         `Bearer ${token}`;
     }
+    
+    // Bypass localtunnel warning screen for API requests
+    req.headers["Bypass-Tunnel-Reminder"] = "true";
 
     return req;
   },

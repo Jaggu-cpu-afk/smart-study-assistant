@@ -13,23 +13,20 @@ import Mcqs from "./Mcqs";
 import Flashcards from "./Flashcards";
 import Viva from "./Viva";
 import Exam from "./Exam";
+import ForgotPassword from "./ForgotPassword";
 import { Toaster } from "react-hot-toast";
 
 function App() {
   return (
     <BrowserRouter>
-      <Toaster position="top-right" />
+      <Toaster position="top-right" toastOptions={{ 
+        style: { background: 'rgba(15, 23, 42, 0.9)', color: '#fff', border: '1px solid rgba(255,255,255,0.1)', backdropFilter: 'blur(10px)' }
+      }} />
       <Routes>
-
-        <Route
-          path="/"
-          element={<Login />}
-        />
-
-        <Route
-          path="/register"
-          element={<Register />}
-        />
+        <Route path="/" element={<Login />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
+        <Route path="/forgot-password" element={<ForgotPassword />} />
 
         <Route
           path="/dashboard"

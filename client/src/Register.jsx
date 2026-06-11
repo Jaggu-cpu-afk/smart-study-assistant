@@ -8,16 +8,20 @@ function Register() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
   const handleRegister = async (e) => {
     e.preventDefault();
     try {
-      await API.post("/auth/register", { name, email, password });
-      toast.success("Account created! Please log in.");
-      navigate("/");
+      setLoading(true);
+      const res = await API.post("/auth/register", { name, email, password });
+      toast.success("Registration Successful! Please log in. 🎉");
+      navigate("/login");
     } catch (error) {
-      toast.error(error.response?.data?.message || "Registration failed");
+      toast.error(error.response?.data?.message || "Registration Failed");
+    } finally {
+      setLoading(false);
     }
   };
 

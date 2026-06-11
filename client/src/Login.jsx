@@ -7,18 +7,22 @@ import toast from "react-hot-toast";
 function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
   const handleLogin = async (e) => {
     e.preventDefault();
     try {
+      setLoading(true);
       const res = await API.post("/auth/login", { email, password });
       localStorage.setItem("token", res.data.token);
       localStorage.setItem("user", JSON.stringify(res.data.user));
-      toast.success("Welcome back! 🚀");
+      toast.success("Login Successful! 🚀");
       navigate("/dashboard");
     } catch (error) {
-      toast.error(error.response?.data?.message || "Login failed!");
+      toast.error(error.response?.data?.message || "Login Failed");
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -92,6 +96,12 @@ function Login() {
                 onChange={(e) => setPassword(e.target.value)}
                 required
               />
+            </div>
+            
+            <div style={{ textAlign: "right" }}>
+              <Link to="/forgot-password" style={{ color: "var(--accent-cyan)", fontSize: "0.9rem", textDecoration: "none" }}>
+                Forgot Password?
+              </Link>
             </div>
 
             <button type="submit" className="btn-neon" style={{ marginTop: "1rem" }}>
