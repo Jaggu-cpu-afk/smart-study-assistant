@@ -5,6 +5,29 @@ const { GoogleGenerativeAI } = require("@google/generative-ai");
 const generateAIResponse = async (prompt) => {
   let geminiApiKey = process.env.GEMINI_API_KEY;
   let openrouterApiKey = process.env.OPENROUTER_API_KEY;
+  let groqApiKey = process.env.GROQ_API_KEY;
+
+  if (groqApiKey) {
+    try {
+      const response = await axios.post(
+        "https://api.groq.com/openai/v1/chat/completions",
+        {
+          model: "llama-3.3-70b-versatile",
+          messages: [{ role: "user", content: prompt }],
+        },
+        {
+          headers: {
+            Authorization: `Bearer ${groqApiKey}`,
+            "Content-Type": "application/json",
+          },
+        }
+      );
+      return response.data.choices[0].message.content;
+    } catch (error) {
+      console.error("Groq API Error:", error.response?.data || error.message);
+      throw new Error("Groq API Error: " + (error.response?.data?.error?.message || error.message));
+    }
+  }
 
   // Check if user accidentally placed OpenRouter key inside GEMINI_API_KEY variable
   if (geminiApiKey && geminiApiKey.startsWith("sk-or")) {
@@ -15,7 +38,7 @@ const generateAIResponse = async (prompt) => {
   if (geminiApiKey) {
     try {
       const genAI = new GoogleGenerativeAI(geminiApiKey);
-      const model = genAI.getGenerativeModel({ model: "gemini-2.5-pro" });
+      const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
       const result = await model.generateContent(prompt);
       return result.response.text();
     } catch (error) {
@@ -55,7 +78,7 @@ const generateAIResponse = async (prompt) => {
     }
   }
 
-  throw new Error("AI API key not configured. Set GEMINI_API_KEY or OPENROUTER_API_KEY in .env");
+  throw new Error("AI API key not configured. Set GROQ_API_KEY, GEMINI_API_KEY, or OPENROUTER_API_KEY in .env");
 };
 
 const generateNotes = async (text) => {
