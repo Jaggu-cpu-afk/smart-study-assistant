@@ -1,91 +1,286 @@
 # 🧠 Smart Study Assistant
 
-![Smart Study Assistant Banner](https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=1200&auto=format&fit=crop)
+![Smart Study Assistant Banner](https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80\&w=1200\&auto=format\&fit=crop)
 
 A cutting-edge, AI-powered study companion designed to transform any PDF textbook, lecture slides, or reading material into highly interactive study aids within seconds. Built with the MERN stack and powered by ultra-fast AI models.
 
+---
+
+## 🌐 Live Demo
+
+🚀 **Smart Study Assistant is Live!**
+
+👉 **[Click Here to Open Smart Study Assistant](https://smart-study-assistant-4mvj.vercel.app/)**
+
+Experience the application by:
+
+* Uploading PDF documents
+* Generating AI-powered Notes
+* Creating MCQs instantly
+* Studying with Flashcards
+* Preparing for Viva Questions
+* Generating Exam Questions
+
+**Live URL:** https://smart-study-assistant-4mvj.vercel.app/
+
+---
+
 ## ✨ Features
 
-- **📄 Smart PDF Extraction**: Instantly upload large PDF documents and extract raw text effortlessly.
-- **📝 AI Chapter Notes**: Generates highly detailed chapter summaries, core concept breakdowns, and quick-revision bullet points.
-- **❓ Automated MCQs**: Generates custom Multiple Choice Questions (5, 10, 15, or 20) with a hidden answer key and detailed explanations at the bottom.
-- **🗂️ Interactive Flashcards**: Creates quick-fire Question/Answer flashcards for spaced repetition.
-- **🎤 Viva Interview Prep**: Simulates oral examinations by generating rapid-fire Viva questions and model answers.
-- **📜 Comprehensive Exams**: Generates both short-form and long-form exam questions to test true mastery of the subject material.
-- **🎨 Glassmorphism UI**: A stunning, premium "Neon Dark" frontend aesthetic featuring frosted glass cards, glowing accents, and smooth hover animations.
+### 📄 Smart PDF Extraction
+
+Instantly upload large PDF documents and extract raw text effortlessly.
+
+### 📝 AI Chapter Notes
+
+Generates highly detailed chapter summaries, core concept breakdowns, and quick-revision bullet points.
+
+### ❓ Automated MCQs
+
+Generates custom Multiple Choice Questions (5, 10, 15, or 20) with answer keys and explanations.
+
+### 🗂️ Interactive Flashcards
+
+Creates Question/Answer flashcards for efficient revision and spaced repetition.
+
+### 🎤 Viva Interview Prep
+
+Simulates oral examinations by generating Viva questions and model answers.
+
+### 📜 Comprehensive Exams
+
+Generates both short-form and long-form exam questions to evaluate understanding.
+
+### 🎨 Modern Glassmorphism UI
+
+Premium Neon Dark interface featuring:
+
+* Frosted glass cards
+* Smooth animations
+* Responsive design
+* Modern user experience
+
+---
 
 ## 🛠️ Technology Stack
 
-**Frontend:**
-- React.js (Vite)
-- React Router DOM
-- React Markdown (for rendering beautiful dark-mode AI outputs)
-- Custom Vanilla CSS (Glassmorphism architecture)
-- Lucide React Icons
+### Frontend
 
-**Backend:**
-- Node.js & Express.js
-- MongoDB & Mongoose (Database & Models)
-- Multer & PDF-Parse (File handling and text extraction)
-- JWT (JSON Web Tokens) for Authentication
+* React.js (Vite)
+* React Router DOM
+* React Markdown
+* Vanilla CSS
+* Lucide React Icons
 
-**AI Integration:**
-- OpenRouter API (Dynamically routing to lightning-fast models like `Llama-3.2-3B`)
-- Google Gemini SDK (Fallback support)
+### Backend
+
+* Node.js
+* Express.js
+* MongoDB Atlas
+* Mongoose
+* Multer
+* PDF-Parse
+* JWT Authentication
+
+### AI Integration
+
+* OpenRouter API
+* Google Gemini API (Fallback Support)
+
+---
 
 ## 🚀 Getting Started
 
-Follow these steps to set up the project locally on your machine.
-
 ### Prerequisites
-- Node.js (v16+)
-- MongoDB Atlas account (or local MongoDB server)
-- OpenRouter API Key (or Google Gemini API Key)
 
-### 1. Clone the repository
+Make sure you have:
+
+* Node.js (v16 or higher)
+* MongoDB Atlas Account (or Local MongoDB)
+* OpenRouter API Key
+* Google Gemini API Key (Optional)
+
+---
+
+### 1️⃣ Clone the Repository
+
 ```bash
-git clone https://github.com/Jaggu-cpu-afk/smart-study-assistant.git
+git clone https://github.com/YOUR_USERNAME/smart-study-assistant.git
+
 cd smart-study-assistant
 ```
 
-### 2. Setup the Backend
-Open a new terminal and navigate to the server folder:
+---
+
+### 2️⃣ Backend Setup
+
+Navigate to the server folder:
+
 ```bash
 cd server
+
 npm install
 ```
 
-Create a `.env` file inside the `/server` directory and add the following variables:
+Create a `.env` file inside the `/server` directory:
+
 ```env
 PORT=5000
+
 MONGO_URI=your_mongodb_connection_string
+
 JWT_SECRET=your_super_secret_jwt_key
+
 OPENROUTER_API_KEY=your_openrouter_api_key
-# GEMINI_API_KEY=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
+
+GEMINI_API_KEY=your_gemini_api_key
 ```
 
 Start the backend server:
+
 ```bash
 npm run dev
 ```
 
-### 3. Setup the Frontend
-Open another terminal and navigate to the client folder:
+---
+
+### 3️⃣ Frontend Setup
+
+Open another terminal:
+
 ```bash
 cd client
+
 npm install
 ```
 
-Start the frontend Vite server:
+Start the frontend:
+
 ```bash
 npm run dev
 ```
 
-### 4. Open the App
-Navigate to `http://localhost:5173` in your browser. Register an account, upload a PDF, and start generating!
+---
 
+### 4️⃣ Open the Application
+
+Visit:
+
+```text
+http://localhost:5173
+```
+
+Register an account, upload a PDF, and start generating study materials instantly.
+
+---
+
+## 📂 Project Structure
+
+```text
+smart-study-assistant/
+│
+├── client/
+│   ├── src/
+│   ├── components/
+│   ├── pages/
+│   └── assets/
+│
+├── server/
+│   ├── controllers/
+│   ├── routes/
+│   ├── models/
+│   ├── middleware/
+│   └── uploads/
+│
+└── README.md
+```
+
+---
+
+## 🔐 Authentication
+
+The application uses JWT (JSON Web Tokens) for:
+
+* User Registration
+* Secure Login
+* Protected Routes
+* Session Management
+
+---
+
+## 🤖 AI-Powered Study Tools
+
+Smart Study Assistant can generate:
+
+✅ Detailed Notes
+
+✅ Multiple Choice Questions (MCQs)
+
+✅ Flashcards
+
+✅ Viva Questions
+
+✅ Exam Questions
+
+All generated directly from uploaded PDF content.
+
+---
+
+## 📸 Screenshots
+
+Add screenshots of:
+
+* Login Page
+* Dashboard
+* PDF Upload
+* Notes Generator
+* MCQ Generator
+* Flashcards
+* Viva Section
+
+---
+
+## 🌟 Future Enhancements
+
+* Voice-Based Learning
+* AI Study Planner
+* Quiz Analytics
+* Multi-Language Support
+* Dark/Light Theme Toggle
+* Mobile Application
+
+---
 
 ## 🤝 Contributing
-Contributions, issues, and feature requests are welcome! Feel free to check the [issues page](https://github.com/Jaggu-cpu-afk/smart-study-assistant/issues).
 
+Contributions, issues, and feature requests are welcome.
 
+Feel free to fork the repository and submit a pull request.
+
+---
+
+## ⭐ Support
+
+If you found this project helpful:
+
+⭐ Star the repository
+
+🍴 Fork the project
+
+📢 Share it with others
+
+---
+
+## 👨‍💻 Author
+
+**Jagapathi**
+
+Full-Stack Developer | AI Enthusiast
+
+Building intelligent solutions with React, Node.js, MongoDB, and Generative AI.
+
+---
+
+## 📜 License
+
+This project is licensed under the MIT License.
